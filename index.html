@@ -3,19 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temps Heat Map</title>
+    <title>D3 For Fun</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="wrapper"></div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js"
-      integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./chart.js"></script>
+    <div class="canvas"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
+    <script>
+      let firebaseConfig = {
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        databaseURL: process.env.DATABASE_URL,
+        projectId: process.env.PROJECT_ID,
+        storageBucket: process.env.STORAGE_BUCKET,
+        messagingSenderId: process.env.MESSAGING_SENDER_ID,
+        appId: process.env.APP_ID,
+        measurementId: process.env.MEASUREMENT_ID,
+      }
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig)
+      const db = firebase.firestore()
+      db.settings({ timestampsInSnapshots: true })
+    </script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="./dishes.js"></script>
   </body>
 </html>

@@ -20,7 +20,7 @@ body {
   padding: 0.5rem;
 }
 
-#wrapper {
+.canvas {
   width: fit-content;
   display: grid;
   /* grid-template-rows: repeat(auto-fit, 1fr);
@@ -30,6 +30,7 @@ body {
   justify-items: center;
   position: relative;
   margin: 4rem auto;
+  border: 1px solid #8e9b6d;
 }
 
 #tooltip {
